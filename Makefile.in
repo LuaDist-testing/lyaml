@@ -16,7 +16,7 @@
 
 # Non-recursive Make rules.
 #
-# Copyright (C) 2013-2014 Gary V. Vaughan
+# Copyright (C) 2013-2015 Gary V. Vaughan
 # Written by Gary V. Vaughan, 2013
 #
 # This program is free software; you can redistribute it and/or modify it
@@ -34,7 +34,7 @@
 
 # Non-recursive Make rules.
 #
-# Copyright (C) 2013-2014 Gary V. Vaughan
+# Copyright (C) 2013-2015 Gary V. Vaughan
 # Written by Gary V. Vaughan, 2013
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -57,7 +57,7 @@
 
 # Lyaml Specl make rules.
 #
-# Copyright (c) 2013-2014 Gary V. Vaughan
+# Copyright (c) 2013-2015 Gary V. Vaughan
 # Written by Gary V. Vaughan, 2013
 #
 # This program is free software; you can redistribute it and/or modify it
@@ -79,7 +79,7 @@
 # terms of the MIT license reproduced below.
 
 # ==================================================================== #
-# Copyright (C) 2013-2014 Gary V. Vaughan                              #
+# Copyright (C) 2013-2015 Gary V. Vaughan                              #
 #                                                                      #
 # Permission is hereby granted, free of charge, to any person          #
 # obtaining a copy of this software and associated documentation       #
@@ -110,7 +110,7 @@
 # terms of the MIT license reproduced below.
 
 # ==================================================================== #
-# Copyright (C) 2013-2014 Reuben Thomas and Gary V. Vaughan                 #
+# Copyright (C) 2013-2015 Reuben Thomas and Gary V. Vaughan                 #
 #                                                                      #
 # Permission is hereby granted, free of charge, to any person          #
 # obtaining a copy of this software and associated documentation       #
@@ -208,11 +208,10 @@ DIST_COMMON = $(srcdir)/local.mk $(srcdir)/specs/specs.mk \
 	INSTALL NEWS README AUTHORS ChangeLog $(srcdir)/Makefile.in \
 	$(srcdir)/Makefile.am $(top_srcdir)/configure \
 	$(am__configure_deps) $(srcdir)/config.h.in \
-	$(srcdir)/travis.yml.in $(dist_bin_SCRIPTS) \
-	$(top_srcdir)/build-aux/depcomp $(dist_lua_DATA) COPYING \
-	build-aux/ar-lib build-aux/compile build-aux/config.guess \
-	build-aux/config.sub build-aux/depcomp build-aux/install-sh \
-	build-aux/missing build-aux/ltmain.sh \
+	$(dist_bin_SCRIPTS) $(top_srcdir)/build-aux/depcomp \
+	$(dist_lua_DATA) COPYING build-aux/ar-lib build-aux/compile \
+	build-aux/config.guess build-aux/config.sub build-aux/depcomp \
+	build-aux/install-sh build-aux/missing build-aux/ltmain.sh \
 	$(top_srcdir)/build-aux/ar-lib $(top_srcdir)/build-aux/compile \
 	$(top_srcdir)/build-aux/config.guess \
 	$(top_srcdir)/build-aux/config.sub \
@@ -224,15 +223,14 @@ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_lua.m4 \
 	$(top_srcdir)/m4/libtool.m4 $(top_srcdir)/m4/ltoptions.m4 \
 	$(top_srcdir)/m4/ltsugar.m4 $(top_srcdir)/m4/ltversion.m4 \
-	$(top_srcdir)/m4/lt~obsolete.m4 $(top_srcdir)/m4/slingshot.m4 \
-	$(top_srcdir)/configure.ac
+	$(top_srcdir)/m4/lt~obsolete.m4 $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = .travis.yml
+CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -261,10 +259,10 @@ am__uninstall_files_from_dir = { \
     || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
          $(am__cd) "$$dir" && rm -f $$files; }; \
   }
-am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" \
-	"$(DESTDIR)$(bindir)" "$(DESTDIR)$(luadir)" \
-	"$(DESTDIR)$(docdir)"
-LTLIBRARIES = $(lib_LTLIBRARIES)
+am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(luaexecdir)" \
+	"$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" \
+	"$(DESTDIR)$(luadir)" "$(DESTDIR)$(docdir)"
+LTLIBRARIES = $(lib_LTLIBRARIES) $(luaexec_LTLIBRARIES)
 ext_yaml_yaml_la_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
 am__objects_1 =
@@ -387,7 +385,6 @@ ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
-EXTRA_ROCKS = @EXTRA_ROCKS@
 FGREP = @FGREP@
 GREP = @GREP@
 INSTALL = @INSTALL@
@@ -500,9 +497,9 @@ SPECL_ENV = LUA='$(LUA)' abs_top_builddir='$(abs_top_builddir)' \
 ACLOCAL_AMFLAGS = -I m4
 AM_CPPFLAGS = $(LUA_INCLUDE)
 EXTRA_DIST = $(srcdir)/specs/spec_helper.lua $(NOTHING_ELSE) \
-	$(specl_SPECS) $(NOTHING_ELSE) ext/yaml/lua52compat.h \
-	ext/yaml/lyaml.h $(NOTHING_ELSE) $(mkrockspecs) \
-	$(package_rockspec) $(rockspec_conf) $(NOTHING_ELSE)
+	$(specl_SPECS) $(NOTHING_ELSE) ext/yaml/lyaml.h \
+	$(NOTHING_ELSE) $(mkrockspecs) $(package_rockspec) \
+	$(rockspec_conf) $(NOTHING_ELSE)
 EXTRA_LTLIBRARIES = 
 CLEANFILES = 
 DISTCLEANFILES = $(luarocks_config) $(NOTHING_ELSE)
@@ -513,8 +510,10 @@ check_local = specl-check-local
 dist_bin_SCRIPTS = 
 dist_lua_DATA = lib/lyaml.lua $(NOTHING_ELSE)
 doc_DATA = 
-install_exec_hooks = 
-lib_LTLIBRARIES = ext/yaml/yaml.la
+install_exec_hooks = remove-luaexec-lafiles
+uninstall_hooks = uninstall-luaexec-modules
+lib_LTLIBRARIES = 
+luaexec_LTLIBRARIES = ext/yaml/yaml.la
 man_MANS = 
 save_release_files = $(scm_rockspec)
 lyaml_cpath = $(abs_builddir)/ext/yaml/$(objdir)/?$(shrext)
@@ -524,7 +523,7 @@ LUA_ENV = \
 	LUA_PATH="$(lyaml_path);$(LUA_PATH)"		\
 	$(NOTHING_ELSE)
 
-old_NEWS_hash = dab71a2961efb85ecb38d5a1c8b1c07c
+old_NEWS_hash = d41d8cd98f00b204e9800998ecf8427e
 update_copyright_env = \
 	UPDATE_COPYRIGHT_HOLDER='(Gary V. Vaughan|Andrew Danforth)' \
 	UPDATE_COPYRIGHT_USE_INTERVALS=1 \
@@ -626,8 +625,6 @@ $(srcdir)/config.h.in:  $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
-.travis.yml: $(top_builddir)/config.status $(srcdir)/travis.yml.in
-	cd $(top_builddir) && $(SHELL) ./config.status $@
 
 install-libLTLIBRARIES: $(lib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
@@ -663,6 +660,41 @@ clean-libLTLIBRARIES:
 	  echo rm -f $${locs}; \
 	  rm -f $${locs}; \
 	}
+
+install-luaexecLTLIBRARIES: $(luaexec_LTLIBRARIES)
+	@$(NORMAL_INSTALL)
+	@list='$(luaexec_LTLIBRARIES)'; test -n "$(luaexecdir)" || list=; \
+	list2=; for p in $$list; do \
+	  if test -f $$p; then \
+	    list2="$$list2 $$p"; \
+	  else :; fi; \
+	done; \
+	test -z "$$list2" || { \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(luaexecdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(luaexecdir)" || exit 1; \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 '$(DESTDIR)$(luaexecdir)'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 "$(DESTDIR)$(luaexecdir)"; \
+	}
+
+uninstall-luaexecLTLIBRARIES:
+	@$(NORMAL_UNINSTALL)
+	@list='$(luaexec_LTLIBRARIES)'; test -n "$(luaexecdir)" || list=; \
+	for p in $$list; do \
+	  $(am__strip_dir) \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f '$(DESTDIR)$(luaexecdir)/$$f'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f "$(DESTDIR)$(luaexecdir)/$$f"; \
+	done
+
+clean-luaexecLTLIBRARIES:
+	-test -z "$(luaexec_LTLIBRARIES)" || rm -f $(luaexec_LTLIBRARIES)
+	@list='$(luaexec_LTLIBRARIES)'; \
+	locs=`for p in $$list; do echo $$p; done | \
+	      sed 's|^[^/]*$$|.|; s|/[^/]*$$||; s|$$|/so_locations|' | \
+	      sort -u`; \
+	test -z "$$locs" || { \
+	  echo rm -f $${locs}; \
+	  rm -f $${locs}; \
+	}
 ext/yaml/$(am__dirstamp):
 	@$(MKDIR_P) ext/yaml
 	@: > ext/yaml/$(am__dirstamp)
@@ -679,7 +711,7 @@ ext/yaml/ext_yaml_yaml_la-scanner.lo: ext/yaml/$(am__dirstamp) \
 	ext/yaml/$(DEPDIR)/$(am__dirstamp)
 
 ext/yaml/yaml.la: $(ext_yaml_yaml_la_OBJECTS) $(ext_yaml_yaml_la_DEPENDENCIES) $(EXTRA_ext_yaml_yaml_la_DEPENDENCIES) ext/yaml/$(am__dirstamp)
-	$(AM_V_CCLD)$(ext_yaml_yaml_la_LINK) -rpath $(libdir) $(ext_yaml_yaml_la_OBJECTS) $(ext_yaml_yaml_la_LIBADD) $(LIBS)
+	$(AM_V_CCLD)$(ext_yaml_yaml_la_LINK) -rpath $(luaexecdir) $(ext_yaml_yaml_la_OBJECTS) $(ext_yaml_yaml_la_LIBADD) $(LIBS)
 install-binSCRIPTS: $(bin_SCRIPTS)
 	@$(NORMAL_INSTALL)
 	@list='$(bin_SCRIPTS)'; test -n "$(bindir)" || list=; \
@@ -1095,7 +1127,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(LTLIBRARIES) $(SCRIPTS) $(DATA) config.h
 installdirs:
-	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(luadir)" "$(DESTDIR)$(docdir)"; do \
+	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(luaexecdir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(luadir)" "$(DESTDIR)$(docdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -1136,7 +1168,7 @@ maintainer-clean-generic:
 clean: clean-am
 
 clean-am: clean-generic clean-libLTLIBRARIES clean-libtool \
-	mostlyclean-am
+	clean-luaexecLTLIBRARIES mostlyclean-am
 
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
@@ -1164,7 +1196,7 @@ install-dvi: install-dvi-am
 install-dvi-am:
 
 install-exec-am: install-binSCRIPTS install-dist_binSCRIPTS \
-	install-libLTLIBRARIES
+	install-libLTLIBRARIES install-luaexecLTLIBRARIES
 	@$(NORMAL_INSTALL)
 	$(MAKE) $(AM_MAKEFLAGS) install-exec-hook
 install-html: install-html-am
@@ -1209,31 +1241,34 @@ ps-am:
 
 uninstall-am: uninstall-binSCRIPTS uninstall-dist_binSCRIPTS \
 	uninstall-dist_luaDATA uninstall-docDATA \
-	uninstall-libLTLIBRARIES
-
-.MAKE: all check-am install-am install-exec-am install-strip
+	uninstall-libLTLIBRARIES uninstall-luaexecLTLIBRARIES
+	@$(NORMAL_INSTALL)
+	$(MAKE) $(AM_MAKEFLAGS) uninstall-hook
+.MAKE: all check-am install-am install-exec-am install-strip \
+	uninstall-am
 
 .PHONY: CTAGS GTAGS TAGS all all-am am--refresh check check-am \
 	check-local clean clean-cscope clean-generic \
-	clean-libLTLIBRARIES clean-libtool cscope cscopelist-am ctags \
-	ctags-am dist dist-all dist-bzip2 dist-gzip dist-lzip \
-	dist-shar dist-tarZ dist-xz dist-zip distcheck distclean \
-	distclean-compile distclean-generic distclean-hdr \
-	distclean-libtool distclean-tags distcleancheck distdir \
-	distuninstallcheck dvi dvi-am html html-am info info-am \
-	install install-am install-binSCRIPTS install-data \
+	clean-libLTLIBRARIES clean-libtool clean-luaexecLTLIBRARIES \
+	cscope cscopelist-am ctags ctags-am dist dist-all dist-bzip2 \
+	dist-gzip dist-lzip dist-shar dist-tarZ dist-xz dist-zip \
+	distcheck distclean distclean-compile distclean-generic \
+	distclean-hdr distclean-libtool distclean-tags distcleancheck \
+	distdir distuninstallcheck dvi dvi-am html html-am info \
+	info-am install install-am install-binSCRIPTS install-data \
 	install-data-am install-dist_binSCRIPTS install-dist_luaDATA \
 	install-docDATA install-dvi install-dvi-am install-exec \
 	install-exec-am install-exec-hook install-html install-html-am \
 	install-info install-info-am install-libLTLIBRARIES \
-	install-man install-pdf install-pdf-am install-ps \
-	install-ps-am install-strip installcheck installcheck-am \
-	installdirs maintainer-clean maintainer-clean-generic \
-	mostlyclean mostlyclean-compile mostlyclean-generic \
-	mostlyclean-libtool pdf pdf-am ps ps-am tags tags-am uninstall \
-	uninstall-am uninstall-binSCRIPTS uninstall-dist_binSCRIPTS \
-	uninstall-dist_luaDATA uninstall-docDATA \
-	uninstall-libLTLIBRARIES
+	install-luaexecLTLIBRARIES install-man install-pdf \
+	install-pdf-am install-ps install-ps-am install-strip \
+	installcheck installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-compile \
+	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
+	tags tags-am uninstall uninstall-am uninstall-binSCRIPTS \
+	uninstall-dist_binSCRIPTS uninstall-dist_luaDATA \
+	uninstall-docDATA uninstall-hook uninstall-libLTLIBRARIES \
+	uninstall-luaexecLTLIBRARIES
 
 
 LUA_PATH  ?= ;
@@ -1279,6 +1314,28 @@ rockspecs:
 check-local: $(check_local)
 
 install-exec-hook: $(install_exec_hooks)
+
+# Neither Lua itself, nor LuaRocks can use .la files, and LuaRocks
+# actually moves such files aside anyway, so we just remove them from
+# the installation directory.
+remove-luaexec-lafiles:
+	@for la in $(luaexec_LTLIBRARIES); do	\
+	  f=`echo "$$la" |sed 's|^.*/||'`;	\
+	  echo rm -f $(luaexecdir)/$$f;		\
+	  rm -f $(luaexecdir)/$$f;		\
+	done
+
+uninstall-hook: $(uninstall_hooks)
+
+# We removed the .la files from luaexecdir, so the standard uninstall,
+# with libtool --mode=uninstall, can't find everything anymore.
+uninstall-luaexec-modules:
+	@for la in $(luaexec_LTLIBRARIES); do	\
+	  base=`echo "$$la"			\
+		|sed 's|^.*/\(.*\)\.la|\1|'`;	\
+	  echo rm -f $(luaexecdir)/$$base.so;	\
+	  rm -f $(luaexecdir)/$$base.so;	\
+	done
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

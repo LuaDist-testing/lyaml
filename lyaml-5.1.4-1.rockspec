@@ -1,7 +1,7 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "lyaml"
-version = "5-1"
+version = "5.1.4-1"
 description = {
   detailed = "Read and write YAML format files with Lua.",
   homepage = "http://github.com/gvvaughan/lyaml",
@@ -10,16 +10,16 @@ description = {
 }
 -- LuaDist source
 source = {
-  tag = "5-1",
+  tag = "5.1.4-1",
   url = "git://github.com/LuaDist-testing/lyaml.git"
 }
 -- Original source
 -- source = {
---   dir = "lyaml-release-v5",
---   url = "http://github.com/gvvaughan/lyaml/archive/release-v5.zip",
+--   dir = "lyaml-release-v5.1.4",
+--   url = "http://github.com/gvvaughan/lyaml/archive/release-v5.1.4.zip",
 -- }
 dependencies = {
-  "lua >= 5.1",
+  "lua >= 5.1, < 5.4",
 }
 external_dependencies = {
   YAML = {
@@ -29,6 +29,6 @@ external_dependencies = {
 build = {
   build_command = "./configure LUA='$(LUA)' LUA_INCLUDE='-I$(LUA_INCDIR)' CPPFLAGS='-I$(YAML_INCDIR)' LDFLAGS='-L$(YAML_LIBDIR)' --prefix='$(PREFIX)' --libdir='$(LIBDIR)' --datadir='$(LUADIR)' --datarootdir='$(PREFIX)' && make clean all",
   copy_directories = {},
-  install_command = "make install luadir='$(LUADIR)'",
+  install_command = "make install luadir='$(LUADIR)' luaexecdir='$(LIBDIR)'",
   type = "command",
 }

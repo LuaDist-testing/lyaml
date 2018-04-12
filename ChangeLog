@@ -1,3 +1,195 @@
+2015-01-01  Gary V. Vaughan  <gary@gnu.org>
+
+	Release version 5.1.4
+	* NEWS.md: Record release date.
+
+	configure: add ansicolors to travis_extra_rocks.
+	* bootstrap.conf (travis_extra_rocks): Add ansicolors for color
+	specl output.
+	* .travis.yml: Regenerate.
+
+	slingshot: sync with upstream, for travis improvements.
+	* slingshot: Sync with upstream.
+	* .travis.yml: Regenerate.
+
+	configury: bump release version to 5.1.4.
+	* configure.ac (AC_INIT): Bump release version to 5.1.4.
+
+	maint: update NEWS.
+	* NEWS.md: Add missing sections.
+
+	maint: commit git rockspec to master branch.
+	* .gitignore: Allow git rockspecs.
+	* lyaml-git-1.rockspec: New file.
+
+	travis: move timestamp fudger to before rockspec make.
+
+	maint: post-release administrivia.
+	* NEWS: Add header line for next release.
+	* .prev-version: Record previous version.
+	* ./local.mk (old_NEWS_hash): Auto-update.
+
+	Release version 5.1.3
+	* NEWS.md: Record release date.
+
+	maint: update copyrights.
+	x bootstrap.conf, configure.ac, ext/yaml/emitter.c,
+	ext/yaml/lyaml.h, ext/yaml/parser.c, ext/yaml/scanner.c,
+	ext/yaml/yaml.c, lib/lyaml.lua, local.mk, specs/specs.mk: Add
+	2015 to copyright statement.
+
+	configury: bump release version to 5.1.3.
+	* configure.ac (AC_INIT): Bump release version to 5.1.3.
+	* .travis.yml: Regenerate.
+
+	rockspec: Lua 5.4 and higher not yet supported.
+	* rockspec.conf (dependencies): Add lua < 5.4 constraint.
+
+	slingshot: sync with upstream, for bootstrap warnings fix.
+	* slingshot: Sync with upstream.
+	* bootstrap: Update from slingshot.
+	* bootstrap.conf (buildreq): Require specl 14 or better with
+	Lua 5.3 compatibility.
+	* .travis.yml: Regenerate.
+
+2014-12-29  Gary V. Vaughan  <gary@gnu.org>
+
+	parser: line and column are integers not strings.
+	* lib/lyaml.lua (Parser): Initialise line and column to integers.
+	(parser_mt): Remove type coercions.
+
+2014-12-27  Gary V. Vaughan  <gary@gnu.org>
+
+	maint: post-release administrivia.
+	* NEWS: Add header line for next release.
+	* .prev-version: Record previous version.
+	* ./local.mk (old_NEWS_hash): Auto-update.
+
+	Release version 5.1.2
+	* NEWS.md: Record release date.
+
+	slingshot: sync with upstream for release fixes.
+
+	configury: bump version number to 5.1.2,
+	* configure.ac (AC_INIT): Bump version number to 5.1.2,
+
+	maint: update NEWS.
+
+	slingshot: sync with upstream for travis configure warning bug.
+	* slingshot: Sync with upstream.
+	* bootstrap.conf (require_bootstrap_uptodate): Remove.  Slingshot
+	bootstrap now handles out of date bootstrap scripts properly.
+	(slingshot_files): Remove slingshot.m4.
+	* configure.ac (SPECL_MIN): Remove.
+	(SS_CONFIG_TRAVIS): Remove. Move extra rocks from here...
+	* bootstrap.conf (travis_extra_rocks): ...to here.
+	* bootstrap: Regenerate.
+
+2014-12-24  Gary V. Vaughan  <gary@gnu.org>
+
+	specs: add some pending emit examples.
+	* specs/ext_yaml_emitter_spec.yaml (emitting): Add some pending
+	emit examples.
+
+2014-12-19  Gary V. Vaughan  <gary@gnu.org>
+
+	maint: insert missing NEWS.md release header.
+	* NEWS: Add missing header.
+
+	maint: post-release administrivia.
+	* NEWS: Add header line for next release.
+	* .prev-version: Record previous version.
+	* ./local.mk (old_NEWS_hash): Auto-update.
+
+	Release version 5.1.1
+	* NEWS.md: Record release date.
+
+	slingshot: sync with upstream, for release fixes.
+	* slingshot: Sync with upstream.
+
+	slingshot: sync with upstream, for rebootstrap subproject fix.
+	* slingshot: Sync with upstream.
+	* bootstrap: Update from slingshot.
+
+2014-12-18  Gary V. Vaughan  <gary@gnu.org>
+
+	slingshot: sync with upstream, for luaexec_LTLIBRARIES support.
+	Close #5.
+	* slingshot: Sync with upstream.
+	* bootstrap: Update from slingshot.
+	* .travis.yml: Regenerate.
+	* local.mk (lib_LTLIBRARIES): Rename from this...
+	(luaexec_LTLIBRARIES): ...to this.
+	(old_NEWS_hash): Update.
+	* NEWS: Move from here...
+	* NEWS.md: ...to here.  Reformat and update.
+	* .gitignore: Add NEWS.
+
+	configury: bump release number to 5.1.1.
+	* configure.ac (AC_INIT): Bump release number to 5.1.1.
+	* NEWS: Update.
+
+2014-12-17  Gary V. Vaughan  <gary@gnu.org>
+
+	maint: post-release administrivia.
+	* NEWS: Add header line for next release.
+	* .prev-version: Record previous version.
+	* ./local.mk (old_NEWS_hash): Auto-update.
+
+	Release version 5.1.0
+	* NEWS: Record release date.
+
+	configury: remove references to lua52compat.h.
+	* local.mk (EXTRA_DIST): Remove ext/yaml/luacompat.h.
+
+	slingshot: sync with upstream, for release fixes.
+	* slingshot: Sync with upstream.
+
+	slingshot: sync with upstream, for release fixes.
+	* slingshot: Sync with upstream.
+
+	maint: bump release revision to 5.1.0.
+	* configure.ac (AC_INIT): Bump release revision to 5.1.0.
+	* NEWS: Update.
+
+	slingshot: sync with upstream, for travis fixes.
+	* slingshot: Sync with upstream.
+	* .travis.yml: Regenerate.
+
+	slingshot: sync with upstream, for luajit fixes.
+	* slingshot: Sync with upstream.
+	* .travis.yml: Regenerate.
+
+	slingshot: sync with upstream, for travis.yml bugfixes.
+	* slingshot: Sync with upstream.
+	* .travis.yml: Regenerate.
+
+	slingshot: sync with upstream, for Lua 5.3 support.
+	* slingshot: Sync with upstream.
+	* bootstrap: Update to latest slingshot bootstrap.
+	* .travis.yml: Regenerate.
+
+	maint: preliminary Lua 5.3.0 compatibility.
+	* slingshot: Sync with upstream for Lua 5.3 compatibility.
+	* configure.ac (AX_PROG_LUA): Accept Lua 5.3 interpreters.
+	* ext/yaml/lua52compat.h: Remove.
+	* ext/yaml/lyaml.h (lua_objlen, lua_strlen, luaL_openlib)
+	(luaL_register): Lua 5.2 and 5.3 compatibility definitions.
+	* .travis.yml: Regenerate.
+
+2014-12-16  Gary V. Vaughan  <gary@gnu.org>
+
+	configury: adopt semantic versioning.
+	* configure.ac (AC_INIT): Bump version to 6.0.0.
+
+2014-09-26  Gary V. Vaughan  <gary@gnu.org>
+
+	maint: post-release administrivia.
+	* configure.ac (AC_INIT): Bump release version to 6.
+	* NEWS: Add header line for next release.
+	* .prev-version: Record previous version.
+	* ./local.mk (old_NEWS_hash): Auto-update.
+
 2014-09-25  Gary V. Vaughan  <gary@gnu.org>
 
 	Release version 5
