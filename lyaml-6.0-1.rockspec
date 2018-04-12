@@ -1,7 +1,7 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "lyaml"
-version = "5.1.4-1"
+version = "6.0-1"
 description = {
   detailed = "Read and write YAML format files with Lua.",
   homepage = "http://github.com/gvvaughan/lyaml",
@@ -10,13 +10,13 @@ description = {
 }
 -- LuaDist source
 source = {
-  tag = "5.1.4-1",
+  tag = "6.0-1",
   url = "git://github.com/LuaDist-testing/lyaml.git"
 }
 -- Original source
 -- source = {
---   dir = "lyaml-release-v5.1.4",
---   url = "http://github.com/gvvaughan/lyaml/archive/release-v5.1.4.zip",
+--   dir = "lyaml-release-v6.0",
+--   url = "http://github.com/gvvaughan/lyaml/archive/release-v6.0.zip",
 -- }
 dependencies = {
   "lua >= 5.1, < 5.4",
