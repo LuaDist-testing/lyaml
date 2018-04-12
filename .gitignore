@@ -1,7 +1,6 @@
 *~
 *.o
 *.so
-*.html
 *.src.rock
 /ChangeLog
 /build-aux/config.ld
