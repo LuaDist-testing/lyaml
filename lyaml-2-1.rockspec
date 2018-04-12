@@ -2,15 +2,15 @@
 
 -- LuaDist source
 source = {
-  tag = "1-1",
+  tag = "2-1",
   url = "git://github.com/LuaDist-testing/lyaml.git"
 }
 -- Original source
 -- source = {
---   dir = "lyaml-release-v1",
---   url = "http://github.com/gvvaughan/lyaml/archive/release-v1.zip",
+--   dir = "lyaml-release-v2",
+--   url = "http://github.com/gvvaughan/lyaml/archive/release-v2.zip",
 -- }
-version = "1-1"
+version = "2-1"
 external_dependencies = {
   YAML = {
     library = "yaml",
@@ -22,7 +22,7 @@ dependencies = {
 }
 description = {
   homepage = "http://github.com/gvvaughan/lyaml/",
-  license = "GPLv3+",
+  license = "MIT",
   summary = "libYAML binding for Lua",
   detailed = "      Read and write YAML format files with Lua.\
      ",
