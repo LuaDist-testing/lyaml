@@ -1,7 +1,7 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = 'lyaml'
-version = '6.1.1-4'
+version = '6.1.2-1'
 
 description = {
   summary = 'libYAML binding for Lua',
@@ -12,13 +12,13 @@ description = {
 
 -- LuaDist source
 source = {
-  tag = "6.1.1-4",
+  tag = "6.1.2-1",
   url = "git://github.com/LuaDist-testing/lyaml.git"
 }
 -- Original source
 -- source = {
---   dir = 'lyaml-6.1.1',
---   url = 'http://github.com/gvvaughan/lyaml/archive/v6.1.1.zip',
+--   dir = 'lyaml-6.1.2',
+--   url = 'http://github.com/gvvaughan/lyaml/archive/v6.1.2.zip',
 -- }
 
 dependencies = {
