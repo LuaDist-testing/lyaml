@@ -1,7 +1,9 @@
 LYAML
 =====
 
+[![License](https://img.shields.io/:license-mit-blue.svg)](https://mit-license.org)
 [![travis-ci status](https://secure.travis-ci.org/gvvaughan/lyaml.png)](http://travis-ci.org/gvvaughan/lyaml/builds)
+[![codecov.io](https://codecov.io/github/lua-stdlib/strict/coverage.svg?branch=master)](https://codecov.io/github/lua-stdlib/strict?branch=master)
 [![Stories in Ready](https://badge.waffle.io/gvvaughan/lyaml.png?label=ready&title=Ready)](https://waffle.io/gvvaughan/lyaml)
 
 [LibYAML] binding for [Lua], with a fast C implementation
@@ -167,33 +169,29 @@ Or from the rockspec in a release tarball:
 
 To install current git master from [GitHub][lyaml] (for testing):
 
-    luarocks install http://raw.github.com/gvvaughan/lyaml/release/lyaml-git-1.rockspec
+    luarocks install http://raw.github.com/gvvaughan/lyaml/master/lyaml-git-1.rockspec
 
 To install without [LuaRocks], clone the sources from the
 [repository][lyaml], and then run the following commands:
 
 ```sh
 cd lyaml
-./bootstrap
-./configure --prefix=INSTALLATION-ROOT-DIRECTORY
-make all check install
+build-aux/luke LYAML_DIR=LIBYAML-INSTALL-PREFIX
+sudo build-aux/luke PREFIX=LYAML-INSTALL-PREFIX install
+specl -v1freport specs/*_spec.yaml
 ```
 
 The dependencies are listed in the dependencies entry of the file
-[rockspec.conf][L10].  You will also need [Autoconf], [Automake]
-and [Libtool].
+[rockspec][L15].
 
 See [INSTALL] for instructions for `configure`.
 
-[autoconf]: http://gnu.org/s/autoconf
-[automake]: http://gnu.org/s/automake
 [install]:  http://raw.github.com/gvvaughan/lyaml/release/INSTALL
-[libtool]:  http://gnu.org/s/libtool
 [libyaml]:  http://pyyaml.org/wiki/LibYAML
 [lua]:      http://www.lua.org
 [luarocks]: http://www.luarocks.org
 [lyaml]:    http://github.com/gvvaughan/lyaml
-[L10]:      http://github.com/gvvaughan/lyaml/blob/master/rockspec.conf#L10
+[L15]:      http://github.com/gvvaughan/lyaml/blob/master/lyaml-git-1.rockspec#L15
 [yaml.h]:   http://pyyaml.org/browser/libyaml/branches/stable/include/yaml.h
 [yaml]:     http://yaml.org
 [yaml11]:   http://yaml.org/spec/1.1/
