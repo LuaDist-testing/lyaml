@@ -1,6 +1,6 @@
 # Non-recursive Make rules.
 #
-# Copyright (C) 2013-2014 Gary V. Vaughan
+# Copyright (C) 2013-2015 Gary V. Vaughan
 # Written by Gary V. Vaughan, 2013
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,7 +39,7 @@ LUA_ENV =						\
 ## Bootstrap. ##
 ## ---------- ##
 
-old_NEWS_hash   = dab71a2961efb85ecb38d5a1c8b1c07c
+old_NEWS_hash   = d41d8cd98f00b204e9800998ecf8427e
 
 update_copyright_env = \
 	UPDATE_COPYRIGHT_HOLDER='(Gary V. Vaughan|Andrew Danforth)' \
@@ -53,7 +53,7 @@ include specs/specs.mk
 ## Declarations. ##
 ## ------------- ##
 
-lib_LTLIBRARIES += ext/yaml/yaml.la
+luaexec_LTLIBRARIES += ext/yaml/yaml.la
 
 ext_yaml_yaml_la_SOURCES =				\
 	ext/yaml/yaml.c					\
@@ -66,7 +66,6 @@ ext_yaml_yaml_la_LDFLAGS  = -module -avoid-version
 ext_yaml_yaml_la_CPPFLAGS = $(LUA_INCLUDE) $(YAML_INCLUDE)
 
 EXTRA_DIST +=						\
-	ext/yaml/lua52compat.h				\
 	ext/yaml/lyaml.h				\
 	$(NOTHING_ELSE)
 
