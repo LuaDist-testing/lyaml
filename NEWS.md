@@ -1,5 +1,27 @@
 # lyaml NEWS - User visible changes
 
+
+## Noteworthy changes in release 6.2.1 (2018-02-20) [stable]
+
+### Bug fixes
+
+  - `spec/spec_helper.lua` now looks in the correct objdir
+    for object modules built by luke, instead of adding unused
+    paths from old Autotools objdirs.  So now specl is properly
+    running examples against the not yet installed lyaml objects.
+
+
+## Noteworthy changes in release 6.2 (2017-11-26) [stable]
+
+### Bug fixes
+
+  - `luke` uses the correct spelling of LIBFLAG to match luarocks now.
+
+  - `luke` no longer throws spurious `cp: file exists` errors.
+
+  - `luke` works on luajit again.
+
+
 ## Noteworthy changes in release 6.1.3 (2017-05-29) [stable]
 
 ### Bug fixes
@@ -11,7 +33,7 @@
 
 ### Bug fixes
 
-  - `luke` now propagates LUA_DIR, YAML_INCDIR and YAML_LIBDIR
+  - `luke` now propagates `LUA_DIR`, `YAML_INCDIR` and `YAML_LIBDIR`
     correctly.
 
 
