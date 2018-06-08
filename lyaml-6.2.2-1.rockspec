@@ -1,6 +1,6 @@
 -- This file was automatically generated for the LuaDist project.
 
-local _MODREV, _SPECREV = '6.2.1', '-1'
+local _MODREV, _SPECREV = '6.2.2', '-1'
 
 package = 'lyaml'
 version = _MODREV .. _SPECREV
@@ -14,7 +14,7 @@ description = {
 
 -- LuaDist source
 source = {
-  tag = "6.2.1-1",
+  tag = "6.2.2-1",
   url = "git://github.com/LuaDist-testing/lyaml.git"
 }
 -- Original source
@@ -25,7 +25,6 @@ source = {
 
 dependencies = {
    'lua >= 5.1, < 5.4',
-   'std.normalize > 2.0',
 }
 
 external_dependencies = {
