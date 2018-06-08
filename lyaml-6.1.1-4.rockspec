@@ -1,3 +1,5 @@
+-- This file was automatically generated for the LuaDist project.
+
 package = 'lyaml'
 version = '6.1.1-4'
 
@@ -8,10 +10,16 @@ description = {
   license = 'MIT/X11',
 }
 
+-- LuaDist source
 source = {
-  dir = 'lyaml-6.1.1',
-  url = 'http://github.com/gvvaughan/lyaml/archive/v6.1.1.zip',
+  tag = "6.1.1-4",
+  url = "git://github.com/LuaDist-testing/lyaml.git"
 }
+-- Original source
+-- source = {
+--   dir = 'lyaml-6.1.1',
+--   url = 'http://github.com/gvvaughan/lyaml/archive/v6.1.1.zip',
+-- }
 
 dependencies = {
   'lua >= 5.1, < 5.4',
